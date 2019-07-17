@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <strong>Ajouter</strong> un Employée
+      </div>
+      <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label">Nom et prénom</label>
+            <div class="col-md-9">
+              <input [(ngModel)]="user.nomPrenom" placeholder="nom et prenom" name="nomprenom" class="form-control" id="nomprenom">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="pass">Mot de passe</label>
+            <div class="col-md-9">
+              <input type="password" [(ngModel)]="user.pass" placeholder="password" name="pass" class="form-control" id="pass">
+              <span class="help-block">Entrer le mot de passe</span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="email">Email</label>
+            <div class="col-md-9">
+              <input type="email" [(ngModel)]="user.email" placeholder="email" name="email" class="form-control" id="email">
+              <span class="help-block">Entrer le mot de passe</span>
+            </div>
+          </div>
+           <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="email">Telephone</label>
+            <div class="col-md-9">
+              <input type="text" [(ngModel)]="user.numtel" placeholder="numtel" name="numtel" class="form-control" id="numtel">
+              <span class="help-block">Entrer num</span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="dateRecurtement">Date de recrutement</label>
+            <div class="col-md-9">
+              <input type="date" [(ngModel)]="user.dateRecurtement" placeholder="Date de recrutement" name="dateRecurtement" class="form-control" id="dateRecurtement">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="pole">Pole</label>
+              <select name="pole" id="pole" [(ngModel)]="pole.id">
+                <option *ngFor="let pole of poles" value="{{pole.id}}" >{{pole.nomService}}</option>
+              </select>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label">Role</label>
+            <div class="col-md-9 col-form-label">
+              <div name="role" class="form-check form-check-inline mr-1">
+                <select name="role" id="role" [(ngModel)]="role.id">
+                  <option  value="1" >Administrateur</option>
+                  <option  value="2" >User</option>
+                </select>
+                <!--<input class="form-check-input" type="text" name="role" [(ngModel)]="role.id" >-->
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="cv">CV</label>
+            <div class="col-md-9">
+              <input  [(ngModel)]="user.cv" type="file" id="cv"(change)="selectFile($event)" name="cv">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="photo">Photo</label>
+            <div class="col-md-9">
+              <input  [(ngModel)]="user.photo"  type="file" id="photo"(change)="selectPhoto($event)" name="photo">
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="card-footer">
+        <button type="submit" (click)="createUser()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"  (click)="createUser()"></i> Submit</button>
+        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+      </div>
+    </div>
+  </div>
+
+</div>

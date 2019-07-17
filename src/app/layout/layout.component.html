@@ -1,0 +1,240 @@
+
+
+<div class="page home-page">
+  <!--*********************************************************************************************************-->
+  <!--************ HERO ***************************************************************************************-->
+  <!--*********************************************************************************************************-->
+  <header class="hero">
+    <div class="hero-wrapper">
+      <!--============ Secondary Navigation ===============================================================-->
+      <div class="secondary-navigation">
+        <div class="container">
+          <ul class="left">
+            <li>
+                            <span>
+                                <i class="fa fa-phone"></i> +1 123 456 789
+                            </span>
+            </li>
+          </ul>
+          <!--end left-->
+          <!--end right-->
+        </div>
+        <!--end container-->
+      </div>
+      <!--============ End Secondary Navigation ===========================================================-->
+      <!--============ Main Navigation ====================================================================-->
+      <div class="main-navigation">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+            <a class="navbar-brand" href="index.html">
+              <img src="assets/img/logo.png" alt="">
+            </a>
+            <!--end navbar-collapse-->
+          </nav>
+          <!--end navbar-->
+        </div>
+        <!--end container-->
+      </div>
+      <!--============ End Main Navigation ================================================================-->
+      <!--============ Page Title =========================================================================-->
+      <div class="page-title">
+        <div class="container">
+          <h1 class="opacity-60 center">
+            <a href="#" style="color: #ff8c0b"><b>Cherchez</b></a> qui vous voulez
+          </h1>
+        </div>
+        <!--end container-->
+      </div>
+      <!--============ End Page Title =====================================================================-->
+      <!--============ Hero Form ==========================================================================-->
+      <form class="hero-form form">
+        <div class="container">
+          <!--Main Form-->
+          <div class="main-search-form">
+            <div class="form-row">
+              <div class="col-md-9 col-sm-9">
+                <div class="form-group">
+                  <label class="col-form-label">Qui cherchez vous?</label>
+                  <input name="nom" [(ngModel)]="nom"  type="text" class="form-control"  placeholder="Entrer nom ou prenom de l'employee">
+                </div>
+                <!--end form-group-->
+              </div>
+
+            </div>
+            <!--end form-row-->
+          </div>
+          <!--end main-search-form-->
+          <!--Alternative Form-->
+          <div class="alternative-search-form">
+            <a href="#collapseAlternativeSearchForm" class="icon" data-toggle="collapse"  aria-expanded="true" aria-controls="collapseAlternativeSearchForm"><i class="fa fa-plus"></i>More Options</a>
+            <div class="collapse" id="collapseAlternativeSearchForm">
+              <div class="wrapper">
+                <div class="form-row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-row">
+                      <div class="col-md-4 col-sm-4">
+                        <div class="form-group">
+                          <input name="min_price" type="text" class="form-control" [(ngModel)]="mail" id="min-price" placeholder="email">
+
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <div class="form-group">
+                          <input name="date" type="date" [(ngModel)]="date" class="form-control"  placeholder="Entrer date de recrutement"> <span class="fa fa-calendar">  date de recrutement</span>
+                        </div>
+                        <!--end form-group-->
+                      </div>
+                      <!--end col-md-4-->
+                      <div class="col-md-4 col-sm-4">
+                        <div class="form-group">
+                          <select name="term" [(ngModel)]="term" id="category" data-placeholder="Select pole">
+                            <option *ngFor ="let pole of poles"  [ngValue]="pole.nomService" >{{pole.nomService}}</option>
+                          </select>
+
+                        </div>
+                        <!--end form-group-->
+                      </div>
+                      <!--end col-md-4-->
+                      <!--end col-md-3-->
+                    </div>
+                    <!--end form-row-->
+                  </div>
+                  <!--end col-xl-6-->
+                </div>
+                <!--end row-->
+              </div>
+              <!--end wrapper-->
+            </div>
+            <!--end collapse-->
+          </div>
+          <!--end alternative-search-form-->
+          <!--end alternative-search-form-->
+        </div>
+        <!--end container-->
+      </form>
+      <!--============ End Hero Form ======================================================================-->
+      <div class="background">
+        <div class="background-image">
+          <img src="assets/img/hero-background-image-02.jpg" alt="">
+        </div>
+        <!--end background-image-->
+      </div>
+      <!--end background-->
+    </div>
+    <!--end hero-wrapper-->
+  </header>
+
+  <section class="content">
+    <!--============ Featured Ads ===========================================================================-->
+    <section class="block">
+      <div class="container">
+        <h2>Employés</h2>
+        <div class="items grid grid-xl-3-items grid-lg-3-items grid-md-2-items">
+          <div *ngFor = "let user of users |userfilter :nom:date:term:mail" >
+            <div class="item">
+              <div class="wrapper">
+                <div class="image">
+                  <h3>
+                    <a href="#" class="tag category">{{user.pole.nomService}}</a>
+                    <a href="single-listing-1.html" class="title">{{user.nomPrenom}}</a>
+                  </h3>
+                  <a href="single-listing-1.html" class="image-wrapper">
+                    <img style="width: 394px; : height 94px;" src="http://localhost/upload-dir/{{user.photo}}">
+                  </a>
+                </div>
+                <!--end image-->
+                <h4 class="email">
+                  <a href="#">{{user.email}}</a>
+                </h4>
+
+                <div class="meta">
+                  <figure>
+                    <i class="fa fa-phone"></i>{{user.numTel}}
+                  </figure>
+                </div>
+                <!--end meta-->
+                <div class="description">
+                  <p><b><i class="fa fa-calendar-o"></i> date de recrutement : </b>{{user.dateRecurtement | date: 'dd/MM/yyyy' }}</p>
+                </div>
+                <!--end description-->
+                <a  class="detail text-caps underline" (click)="onSelect(user)" >detail</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="block" >
+      <div class="container" >
+        <div class="owl-carousel">
+          <h2>Employés recents  </h2>
+          <div class="items grid grid-xl-3-items grid-lg-3-items grid-md-2-items">
+            <div *ngFor = "let user of users | sortBy : 'dateRecurtement'" >
+              <div class="item">
+                <div class="wrapper">
+                  <div class="image">
+                    <h3>
+                      <a href="#" class="tag category">{{user.pole.nomService}}</a>
+                      <a href="single-listing-1.html" class="title">{{user.nomPrenom}}</a>
+                    </h3>
+                    <a href="single-listing-1.html" class="image-wrapper">
+                      <img style="width: 394px; : height 94px;" src="http://localhost/upload-dir/{{user.photo}}">
+                    </a>
+                  </div>
+                  <!--end image-->
+                  <h4 class="email">
+                    <a href="#">{{user.email}}</a>
+                  </h4>
+
+                  <div class="meta">
+                    <figure>
+                      <i class="fa fa-phone"></i>{{user.numTel}}
+                    </figure>
+                  </div>
+                  <!--end meta-->
+                  <div class="description">
+                    <p><b><i class="fa fa-calendar-o"></i> date de recrutement : </b>{{user.dateRecurtement | date: 'dd/MM/yyyy' }}</p>
+                  </div>
+                  <!--end description-->
+                  <a  class="detail text-caps underline" (click)="onSelect(user)">detail</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <footer class="footer">
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <a href="#" class="brand">
+              <img src="../../assets/img/brand/hero-background-image-02.jpg" alt="">
+            </a>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet
+              fermentum sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
+            </p>
+          </div>
+
+        </div>
+        <!--end row-->
+      </div>
+      <div class="background">
+        <div class="background-image original-size">
+          <img src="../../assets/img/footer-background-icons.jpg" alt="">
+        </div>
+        <!--end background-image-->
+      </div>
+      <!--end background-->
+    </div>
+  </footer>
+</div>
+<!--end page-->

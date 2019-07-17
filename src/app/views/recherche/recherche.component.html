@@ -1,0 +1,56 @@
+
+  <div class="col-md-3">
+    <div class="input-group">
+                  <span class="input-group-prepend">
+                    <button type="button" class="btn btn-danger"><i class="fa fa-search"></i> Search</button>
+                  </span>
+      <input  type="text" [(ngModel)]="term" class="form-control" placeholder="Nom et prenom">
+
+    </div>
+  </div>
+
+<br>
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="card">
+
+      <br>
+      <table class="table table-responsive-sm table-hover table-outline mb-0" >
+        <thead class="thead-light">
+        <tr>
+          <th class="text-center"><i class="icon-people"></i></th>
+          <th class="text-center" >User</th>
+          <th >Date de recrutement</th>
+          <th >Email</th>
+          <th >numero de telephone</th>
+          <th >pole</th>
+          <th >Cv</th>
+
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let user of users |filter:term" >
+
+          <td class="text-center">
+            <div class="avatar">
+              <img src="http://localhost/upload-dir/{{user.photo}}"
+                   class="img-avatar" >
+              <span class="avatar-status badge-success"></span>
+            </div>
+          </td>
+          <td  [innerHTML]="user.nomPrenom"  (click)="onSelect(user)" ></td>
+
+          <td >{{user.dateRecurtement | date: 'fullDate' }}</td>
+          <td [innerHTML]="user.email"></td>
+          <td [innerHTML]="user.numTel"></td>
+          <td [innerHTML]="user.pole.nomService">
+          <td [innerHTML]="user.cv"></td>
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row flex-column-reverse flex-md-row">
+                <div class="col-md-9">
+                    <section class="my-0">
+                        <div class="author big">
+                            <div class="author-image">
+                                <div>
+                                    <img src="http://localhost/upload-dir/{{user1.photo}}">
+                                </div>
+                            </div>
+                            <button class="btn btn-danger" (click)="onUpdate(user1)"> Update User</button>
+                            <!--end author-image-->
+                            <div class="author-description">
+                                <div class="section-title">
+                                    <h2>{{user1.nomPrenom}}</h2>
+                                    <h4 class="date">
+                                        <a href="#"> {{user1.pole.nomService}}</a>
+                                    </h4>
+                                    <figure>
+                                        <div class="text-align-right social">
+                                            <a class="fa fa-file">
+                                                {{user1.cv}}
+                                            </a>
+                                        </div>
+                                    </figure>
+                                </div>
+                                <div class="additional-info">
+                                    <ul>
+                                        <li>
+                                            <figure>Phone</figure>
+                                            <aside>{{user1.numTel}}</aside>
+                                        </li>
+                                        <li>
+                                            <figure>Email</figure>
+                                            <aside><a href="#">{{user1.email}}</a></aside>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--end addition-info-->
+                                <h5>
+                                   <b>Date de recrutement  :  </b>{{user.dateRecurtement | date: 'fullDate' }}
+                                </h5>
+                            </div>
+                            <!--end author-description-->
+                        </div>
+                        <!--end author-->
+                    </section>
+
+                    <hr>
+
+                </div>
+                <!--end col-md-9-->
+
+                <!--end col-md-3-->
+            </div>
+        </div>
+        <!--end container-->
+    </section>
+    <!--end block-->
+</section>

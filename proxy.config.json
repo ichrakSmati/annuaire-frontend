@@ -1,0 +1,6 @@
+{
+  "/annuaire/*": {
+    "target": "http://localhost:8088/user-portal",
+    "secure": false
+  }
+}
